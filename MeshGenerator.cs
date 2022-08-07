@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class MeshGenerator : MonoBehaviour
 {
-
+    //variables
     Mesh mesh;
-
+    
     Vector3[] vertices;
     int[] triangles;
     Vector2[] uvs;
@@ -19,6 +19,7 @@ public class MeshGenerator : MonoBehaviour
     public int xSize = 40;
     public int zSize = 40;
     public float grasx = 0;
+    //start function
     void Start()
     {
         mesh = new Mesh();
@@ -30,11 +31,10 @@ public class MeshGenerator : MonoBehaviour
 
 
 
-
+    //a function that creates the terrain values
     void CreateShape()
     {
         vertices = new Vector3[(xSize + 1) * (zSize + 1)];
-
         for (int i = 0, z =0; z<= zSize; z++)
         {
             for (int x = 0; x<=xSize; x++)
@@ -102,6 +102,7 @@ public class MeshGenerator : MonoBehaviour
 
     void UpdateMesh()
     {
+        //method that applys the terrain values
         mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
